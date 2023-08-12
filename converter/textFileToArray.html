@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cooltebza | Formatter</title>
+ 
+   </head>
+   <body>
+    
+      <div class="form-group">
+<div class="form-group">
+        <label for="flname">File Name: </label>
+        <input type="text"
+          class="form-control" name="flname" id="flname"  placeholder="Enter your File name">
+      </div>
+      <div class="form-group">
+        <label for="fltype">File Type: </label>
+        <input type="text"
+          class="form-control" name="fltype" id="fltype"  placeholder="Enter your File Type abbr">
+      </div>
+      <div class="form-group">
+        <input type="button"
+          class="form-control" name="fBtn" id="fBtn" title="Reset form input text" value="Convert">
+      
+      </div>
+      </div>
+    <ul id="index">
+        
+    </ul>
+      
+
+    <script type="text/javascript" >
+        var a_z = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+      "1","2","3","4","5","6","7","8","9","0"
+      ]
+        var f1 = document.querySelector("#flname");
+var f2 = document.querySelector("#fltype");
+var fBtn = document.querySelector("#fBtn");
+         var countTxt = 0;
+         
+fBtn.addEventListener("click", (e) => { 
+  convertAlphabet();
+});
+function convertAlphabet() {
+  countTxt= 0;
+  document.querySelector("#index").innerHTML = "";
+  var aplText = f1.value;
+  var aplFileText = '".'+f2.value+'"';
+  for (let i = 0; i < aplText.length; i++) {
+    countTxt++;
+    const aTxt = aplText.substring(i, countTxt);
+    for (let x = 0; x < a_z.length; x++) {
+      if (aTxt == a_z[x]) {
+         const az = a_z.indexOf(aTxt);
+         if(aplText.length == countTxt || aplText.length == 1){
+document.querySelector("#index").textContent += "a_z["+az+"]";
+if (countTxt == aplText.length) {
+    document.querySelector("#index").innerHTML += "+"+aplFileText;
+  }else{
+
+    document.querySelector("#index").innerHTML += "<br>";
+  }
+         }else{
+          document.querySelector("#index").textContent += "a_z["+az+"]+";
+          if (countTxt == aplText.length) {
+    document.querySelector("#index").innerHTML += aplFileText;
+  }else{
+
+    document.querySelector("#index").innerHTML += "<br>";
+  }
+         }
+
+  
+  
+      } else {
+        
+      }
+ 
+  }
+    }
+    
+}
+  
+
+    </script>
+   </body>
+ 
+ 
+</html> 

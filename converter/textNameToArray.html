@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cooltebza | Formatter</title>
+ 
+   </head>
+   <body>
+    
+      <div class="form-group">
+<div class="form-group">
+        <label for="flname">Word/Text: </label>
+        <input type="text"
+          class="form-control" name="flname" id="flname"  placeholder="Enter your Text">
+      </div>
+      <div class="form-group">
+        <input type="button"
+          class="form-control" name="fBtn" id="fBtn" title="Reset form input text" value="Convert To Array">
+      
+      </div>
+      </div>
+    <ul id="index">
+        
+    </ul>
+      
+
+    <script type="text/javascript" >
+        var a_z = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+        "1","2","3","4","5","6","7","8","9","0"]
+        var f1 = document.querySelector("#flname");
+var fBtn = document.querySelector("#fBtn");
+         var countTxt = 0;
+         
+fBtn.addEventListener("click", (e) => { 
+  convertAlphabet();
+});
+function convertAlphabet() {
+  countTxt= 0;
+  document.querySelector("#index").innerHTML = "";
+  var aplText = f1.value;
+  for (let i = 0; i < aplText.length; i++) {
+    countTxt++;
+    const aTxt = aplText.substring(i, countTxt);
+    for (let x = 0; x < a_z.length; x++) {
+      if (aTxt == a_z[x]) {
+         const az = a_z.indexOf(aTxt);
+         if(aplText.length == countTxt || aplText.length == 1){
+document.querySelector("#index").textContent += "a_z["+az+"]";
+         }else{
+          document.querySelector("#index").textContent += "a_z["+az+"]+";
+         }
+    document.querySelector("#index").innerHTML += "<br>";
+  
+  
+      } else {
+        
+      }
+ 
+  }
+    }
+    
+}
+  
+
+    </script>
+   </body>
+ 
+ 
+</html> 
